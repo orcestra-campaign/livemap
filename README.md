@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MQTT Dashboard for live data during EUREC4A
+
+This is currently only a scratch and may actually never get beyond that.
+See below for some default documentation of create-react-app.
 
 ## Available Scripts
 
