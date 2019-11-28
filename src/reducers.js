@@ -1,4 +1,5 @@
 import * as R from 'ramda'
+import * as moment from 'moment';
 
 function prepare_state(state) {
     return state;
@@ -32,7 +33,8 @@ function eurec4a_reducer(state = initialState, action) {
             {
                 const id = platform_id(action.topic);
                 const idLens = R.lensPath(['platform', id, 'location'])
-                return R.over(idLens, device => { return action.payload; }, state); 
+                const location = {...action.payload, time: moment.utc(action.payload.time)};
+                return R.over(idLens, device => { return location; }, state);
             }
         default:
             return state;
