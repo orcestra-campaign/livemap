@@ -98,6 +98,7 @@ class PlatformInfo extends Component {
                 <div> lat: <NumberFormat value={ this.props.location.lat } suffix="°" displayType="text" decimalScale="7" /> </div>
                 <div> lon: <NumberFormat value={ this.props.location.lon } suffix="°" displayType="text" decimalScale="7" /> </div>
                 <div><FontAwesomeIcon icon={faStopwatch} /> <TimeDiff time={ this.props.location.time } /></div>
+                <div>{ this.props.meta.misc || "" }</div>
             </div>
           </div>
       )
