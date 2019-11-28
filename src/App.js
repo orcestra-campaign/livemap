@@ -19,7 +19,8 @@ import {
     faShip,
     faHome,
     faLifeRing,
-    faQuestion
+    faQuestion,
+    faSatelliteDish
 } from '@fortawesome/free-solid-svg-icons'
 
 const platform_icons = {
@@ -27,6 +28,7 @@ const platform_icons = {
     "ship": faShip,
     "station": faHome,
     "buoy": faLifeRing,
+    "ground radar": faSatelliteDish,
 };
 
 
