@@ -74,7 +74,7 @@ class App_ extends Component {
     return (
       <div className="App">
         <Router basename={process.env.PUBLIC_URL}>
-          <Navbar bg="light">
+          <Navbar bg="light" expand="sm">
             <Navbar.Brand as={NavLink} to="/">
               <img
                 src={ logo }
@@ -83,13 +83,17 @@ class App_ extends Component {
                 className="d-inline-block align-top"
                 alt="EUREC4A logo"
               />{' '}
-              EUREC<sup>4</sup>A MQTT Dashboard
+              EUREC<sup>4</sup>A
             </Navbar.Brand>
-            <Nav className="mr-auto" as="ul">
-              <Nav.Link as={NavLink} exact to="/">Map</Nav.Link>
-              <Nav.Link as={NavLink} exact to="/table">Table</Nav.Link>
-              <Nav.Link as={NavLink} exact to="/about">About</Nav.Link>
-            </Nav>
+            <Navbar.Toggle />
+            <Navbar.Collapse>
+              <Navbar.Brand>MQTT Dashboard</Navbar.Brand>
+              <Nav className="mr-auto" as="ul">
+                <Nav.Link as={NavLink} exact to="/">Map</Nav.Link>
+                <Nav.Link as={NavLink} exact to="/table">Table</Nav.Link>
+                <Nav.Link as={NavLink} exact to="/about">About</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
           </Navbar>
           <Switch>
             <Route exact path="/">
