@@ -73,7 +73,7 @@ class App_ extends Component {
   render() {
     return (
       <div className="App">
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Navbar bg="light">
             <Navbar.Brand as={NavLink} to="/">
               <img
