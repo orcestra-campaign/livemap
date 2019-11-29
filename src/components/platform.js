@@ -106,3 +106,49 @@ export class PlatformList extends Component {
     });
   }
 }
+
+export class PlatformTable extends Component {
+  render() {
+    return (
+        <Table responsive hover>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>platform_id</th>
+                    <th>planet_id</th>
+                    <th>long_name</th>
+                    <th>lat</th>
+                    <th>lon</th>
+                    <th>last heared</th>
+                    <th>misc</th>
+                </tr>
+            </thead>
+            <tbody>
+            {
+                [...this.props.platform]
+                    .sort((p1, p2) => p1.id.toLowerCase().localeCompare(p2.id.toLowerCase()))
+                    .map(platform =>
+                    <tr>
+                        <td><FontAwesomeIcon icon={ platform_types_to_icon(platform.meta.platform_types) } /></td>
+                        <td>{
+                            (() => {
+                          if (platform.meta.url) {
+                            return <a href={ platform.meta.url } target="_blank" rel="noopener noreferrer">{ platform.id }</a>
+                          } else {
+                            return platform.id
+                          }})()
+                        }</td>
+                        <td>{ platform.meta.planet_id || "-" }</td>
+                        <td>{ platform.meta.long_name || "-" }</td>
+                        <td><NumberFormat value={ platform.location.lat } suffix="°" displayType="text" decimalScale="7" /></td>
+                        <td><NumberFormat value={ platform.location.lon } suffix="°" displayType="text" decimalScale="7" /></td>
+                        <td><TimeDiff time={ platform.location.time } /></td>
+                        <td>{ platform.meta.misc || "" }</td>
+                    </tr>
+                )
+            }
+            </tbody>
+        </Table>
+        )
+  }
+}
