@@ -19,6 +19,7 @@ import L from 'leaflet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { PlatformInfo, PlatformTable, platform_types_to_icon } from './components/platform';
+import { About } from './components/about';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -87,6 +88,7 @@ class App_ extends Component {
             <Nav className="mr-auto" as="ul">
               <Nav.Link as={NavLink} exact to="/">Map</Nav.Link>
               <Nav.Link as={NavLink} exact to="/table">Table</Nav.Link>
+              <Nav.Link as={NavLink} exact to="/about">About</Nav.Link>
             </Nav>
           </Navbar>
           <Switch>
@@ -101,6 +103,9 @@ class App_ extends Component {
             </Route>
             <Route exact path="/table">
               <PlatformTable {...this.props} />
+            </Route>
+            <Route exact path="/about">
+              <About />
             </Route>
           </Switch>
         </Router>
