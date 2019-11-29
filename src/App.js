@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
+import logo from './logo.svg';
 import { renderToStaticMarkup } from "react-dom/server";
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  //Link,
+  NavLink
+} from "react-router-dom";
+//import { withRouter } from "react-router";
 
 import { connect } from 'react-redux';
 
@@ -11,6 +20,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { PlatformInfo, platform_types_to_icon } from './components/platform';
 
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+//import Button from 'react-bootstrap/Button';
 
 const mapStateToProps = state => {
     return {
@@ -56,23 +68,47 @@ class AssetMarkers extends Component {
   }
 }
 
-const LiveAssetMarkers= connect(
+class App_ extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <Navbar bg="light">
+            <Navbar.Brand as={NavLink} to="/">
+              <img
+                src={ logo }
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+                alt="EUREC4A logo"
+              />{' '}
+              EUREC<sup>4</sup>A MQTT Dashboard
+            </Navbar.Brand>
+            <Nav className="mr-auto" as="ul">
+              <Nav.Link as={NavLink} exact to="/">Map</Nav.Link>
+            </Nav>
+          </Navbar>
+          <Switch>
+            <Route exact path="/">
+              <Map className="Map" center={[0, 0]} zoom={2}>
+                <TileLayer
+                  attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                  url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
+                />
+                <AssetMarkers {...this.props} />
+              </Map>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
+}
+
+const App = connect(
     mapStateToProps,
     mapDispatchToProps
-)(AssetMarkers)
+)(App_)
 
-function App() {
-  return (
-    <div className="App">
-      <Map className="Map" center={[0, 0]} zoom={2}>
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
-        />
-        <LiveAssetMarkers/>
-      </Map>
-    </div>
-  );
-}
 
 export default App;
