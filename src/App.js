@@ -21,6 +21,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { PlatformInfo, PlatformTable, platform_types_to_icon } from './components/platform';
 import { About } from './components/about';
 
+import { AssetIcon } from './lib/asset_icons';
+
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 //import Button from 'react-bootstrap/Button';
@@ -53,7 +55,7 @@ class AssetMarkers extends Component {
                                       icon={platform_types_to_icon(platform.meta.platform_types)}
                                       size="2x" />;
         const customMarkerIcon = L.divIcon({
-          html: renderToStaticMarkup(icon),
+          html: renderToStaticMarkup(<AssetIcon asset_types={ platform.meta.platform_types } />),
           className: "icon"
         });
         return (

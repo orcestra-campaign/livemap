@@ -16,6 +16,8 @@ export class About extends Component {
 				The <a href="https://github.com/eurec4a/mqtt_dashboard">code for the dashboard</a> and the <a href="https://github.com/eurec4a/mqtt_spec/blob/master/mqtt_spec.md">specification for the MQTT messages</a> exchanged over the broker can be found on github.
 				Pull requests welcome!
                 If you find a problem or have a feature request, please open an issue in the respective repository.
+            <h2>Credits</h2>
+                Many asset icons are provided for the use during EUREC<sup>4</sup>A by the <a href="https://navigator.geomar.de">GEOMAR Navigator</a>.
         </Container>
     )
   }
