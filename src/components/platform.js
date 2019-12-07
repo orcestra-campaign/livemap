@@ -140,8 +140,8 @@ export class PlatformTable extends Component {
                         }</td>
                         <td>{ platform.meta.planet_id || "-" }</td>
                         <td>{ platform.meta.long_name || "-" }</td>
-                        <td><NumberFormat value={ platform.location.lat } suffix="°" displayType="text" decimalScale="7" /></td>
-                        <td><NumberFormat value={ platform.location.lon } suffix="°" displayType="text" decimalScale="7" /></td>
+                        <td><NumberFormat value={ platform.location.lat } suffix="°" displayType="text" decimalScale="7" defaultValue="-" /></td>
+                        <td><NumberFormat value={ platform.location.lon } suffix="°" displayType="text" decimalScale="7" defaultValue="-" /></td>
                         <td><TimeDiff time={ platform.location.time } /></td>
                         <td>{ platform.meta.misc || "" }</td>
                     </tr>
