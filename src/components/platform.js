@@ -128,7 +128,7 @@ export class PlatformTable extends Component {
                 [...this.props.platform]
                     .sort((p1, p2) => p1.id.toLowerCase().localeCompare(p2.id.toLowerCase()))
                     .map(platform =>
-                    <tr>
+                    <tr key={ platform.id } >
                         <td><FontAwesomeIcon icon={ platform_types_to_icon(platform.meta.platform_types) } /></td>
                         <td>{
                             (() => {
