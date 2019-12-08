@@ -26,8 +26,13 @@ function eurec4a_reducer(state = initialState, action) {
         case "PLATFORM_META":
             {
                 const id = platform_id(action.topic);
+                const {url, contact, ...meta} = {
+                    ...action.payload,
+                    urls: (action.payload.url && [action.payload.url] || []).concat(action.payload.urls || []),
+                    contacts: (action.payload.contact && [action.payload.contact] || []).concat(action.payload.contacts || [])
+                };
                 const idLens = R.lensPath(['platform', id, 'meta'])
-                return R.over(idLens, device => { return action.payload; }, state); 
+                return R.over(idLens, device => { return meta; }, state);
             }
         case "PLATFORM_LOCATION":
             {

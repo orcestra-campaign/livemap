@@ -77,7 +77,7 @@ export const platform_types_to_icon = platform_types => {
 export class PlatformInfo extends Component {
   render() {
       const name = this.props.meta.long_name || this.props.id;
-      const url = this.props.meta.url;
+      const url = this.props.meta.urls[0];
       var title;
       if (url) {
           title = ( <a href={ url } target="_blank" rel="noopener noreferrer">{ name }</a> );
@@ -127,13 +127,15 @@ export class PlatformTable extends Component {
             {
                 [...this.props.platform]
                     .sort((p1, p2) => p1.id.toLowerCase().localeCompare(p2.id.toLowerCase()))
+                    //.sort((p1, p2) => (p2.location.time || 0) - (p1.location.time || 0))
                     .map(platform =>
                     <tr key={ platform.id } >
                         <td><FontAwesomeIcon icon={ platform_types_to_icon(platform.meta.platform_types) } /></td>
                         <td>{
                             (() => {
-                          if (platform.meta.url) {
-                            return <a href={ platform.meta.url } target="_blank" rel="noopener noreferrer">{ platform.id }</a>
+                          const url = platform.meta.urls[0];
+                          if (url) {
+                            return <a href={ url } target="_blank" rel="noopener noreferrer">{ platform.id }</a>
                           } else {
                             return platform.id
                           }})()
