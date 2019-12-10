@@ -27,15 +27,19 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 //import Button from 'react-bootstrap/Button';
 
+const normalize_platform = (id, data) => {
+    return {meta: {},
+            location: {},
+            ...data,
+            id: id};
+};
+
+const platforms_to_list = platforms => {
+    return Object.keys(platforms).map((id, index) => normalize_platform(id, platforms[id]))
+};
+
 const mapStateToProps = state => {
-    return {
-        platform: Object.keys(state.platform).map((id, index) => {
-            return {meta: {},
-                    location: {},
-                    ...state.platform[id],
-                    id: id};
-        })
-    }
+    return state;
 }
 
 const mapDispatchToProps = dispatch => {
@@ -104,11 +108,11 @@ class App_ extends Component {
                   attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                   url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
                 />
-                <AssetMarkers {...this.props} />
+                <AssetMarkers platform={platforms_to_list(this.props.platform)} />
               </Map>
             </Route>
             <Route exact path="/table">
-              <PlatformTable {...this.props} />
+              <PlatformTable platform={platforms_to_list(this.props.platform)} />
             </Route>
             <Route exact path="/about">
               <About />
