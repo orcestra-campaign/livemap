@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import ReactJson from 'react-json-view'
+import Container from 'react-bootstrap/Container'
+import { Link } from "react-router-dom";
+
 import NumberFormat from 'react-number-format';
 import * as moment from 'moment';
 
@@ -14,7 +18,8 @@ import {
     faHome,
     faLifeRing,
     faQuestion,
-    faSatelliteDish
+    faSatelliteDish,
+    faInfo
 } from '@fortawesome/free-solid-svg-icons'
 
 export const platform_icons = {
@@ -114,6 +119,7 @@ export class PlatformTable extends Component {
             <thead>
                 <tr>
                     <th></th>
+                    <th></th>
                     <th>platform_id</th>
                     <th>planet_id</th>
                     <th>long_name</th>
@@ -131,6 +137,7 @@ export class PlatformTable extends Component {
                     .map(platform =>
                     <tr key={ platform.id } >
                         <td><FontAwesomeIcon icon={ platform_types_to_icon(platform.meta.platform_types) } /></td>
+                        <td><Link exact to={`/platform/${platform.id}/details`}><FontAwesomeIcon icon={ faInfo } /></Link></td>
                         <td>{
                             (() => {
                           const url = platform.meta.urls[0];
@@ -152,5 +159,18 @@ export class PlatformTable extends Component {
             </tbody>
         </Table>
         )
+  }
+}
+
+export class PlatformDetails extends Component {
+  render() {
+    const platform = this.props.platform;
+    console.log(platform);
+    return (
+        <Container>
+            <h1>{ platform.id }</h1>
+            <ReactJson src={ platform.meta } name={ false } displayDataTypes={ false } />
+        </Container>
+    );
   }
 }

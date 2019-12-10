@@ -18,7 +18,7 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { PlatformInfo, PlatformTable, platform_types_to_icon } from './components/platform';
+import { PlatformInfo, PlatformTable, PlatformDetails, platform_types_to_icon } from './components/platform';
 import { About } from './components/about';
 
 import { AssetIcon } from './lib/asset_icons';
@@ -117,6 +117,11 @@ class App_ extends Component {
             <Route exact path="/about">
               <About />
             </Route>
+            <Route path="/platform/:id/details" render={(r) =>
+                <PlatformDetails platform={
+                    {id: r.match.params.id, ...this.props.platform[r.match.params.id]}
+                } />
+            } />
           </Switch>
         </Router>
       </div>
