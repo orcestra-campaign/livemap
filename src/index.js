@@ -29,13 +29,21 @@ const store = createStore(
     applyMiddleware(logger, mqttRedux.createMiddleware()),
 );
 
+const decode_payload = payload => {
+    if (payload.length == 0) {
+        return "DELETE";
+    } else {
+        return JSON.parse(payload);
+    }
+};
+
 const actionTopicMapping = [
     { action: 'PLATFORM_META',
       topic: 'platform/+/meta',
-      decoder: JSON.parse },
+      decoder: decode_payload },
     { action: 'PLATFORM_LOCATION',
       topic: 'platform/+/location',
-      decoder: JSON.parse},
+      decoder: decode_payload },
 ];
 
 mqttRedux.connect(actionTopicMapping, store);
