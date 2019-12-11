@@ -2,11 +2,13 @@
   "name": "mqtt_dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://www.meteo.physik.uni-muenchen.de/~tobias.koelling/mqtt_dashboard",
   "devDependencies": {
-    "react-scripts": "3.2.0"
+    "react-scripts": "^3.3.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
     "bootstrap": "^4.4.1",

@@ -12,6 +12,10 @@ import {
     faSatelliteDish
 } from '@fortawesome/free-solid-svg-icons'
 
+import {
+    faFly
+} from '@fortawesome/free-brands-svg-icons'
+
 import slocum from "./asset_icons/geomar_waveglider/slocum.png";
 import meteor from "./asset_icons/geomar_waveglider/meteor.png";
 import mooring from "./asset_icons/geomar_waveglider/mooring.png";
@@ -33,6 +37,7 @@ const icons = {
     "station": { fa: faHome },
     "buoy": { fa: faLifeRing },
     "ground radar": { fa: faSatelliteDish },
+    "tethered balloon": { fa: faFly },
     "undefined": { fa: faQuestion },
 }
 

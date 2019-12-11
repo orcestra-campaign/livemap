@@ -22,12 +22,17 @@ import {
     faInfo
 } from '@fortawesome/free-solid-svg-icons'
 
+import {
+    faFly
+} from '@fortawesome/free-brands-svg-icons'
+
 export const platform_icons = {
     "plane": faPlane,
     "ship": faShip,
     "station": faHome,
     "buoy": faLifeRing,
     "ground radar": faSatelliteDish,
+    "tethered balloon": faFly,
 };
 
 
