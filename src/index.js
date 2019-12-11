@@ -30,7 +30,7 @@ const store = createStore(
 );
 
 const decode_payload = payload => {
-    if (payload.length == 0) {
+    if (payload.length === 0) {
         return "DELETE";
     } else {
         return JSON.parse(payload);

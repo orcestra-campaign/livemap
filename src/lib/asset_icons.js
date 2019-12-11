@@ -72,7 +72,7 @@ export class AssetIcon extends Component {
                 "margin-left": props.l,
                 "margin-top": props.t,
             }
-            return <img style={ style } width={ props.w } height={ props.h } src={ props.src } />
+            return <img style={ style } width={ props.w } height={ props.h } src={ props.src } alt={this.props.asset_types[0]} />
         }
     }
 }

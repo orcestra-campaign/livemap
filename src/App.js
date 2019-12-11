@@ -16,9 +16,8 @@ import { connect } from 'react-redux';
 
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { PlatformInfo, PlatformTable, PlatformDetails, platform_types_to_icon } from './components/platform';
+import { PlatformInfo, PlatformTable, PlatformDetails } from './components/platform';
 import { About } from './components/about';
 
 import { AssetIcon } from './lib/asset_icons';
@@ -55,9 +54,6 @@ class AssetMarkers extends Component {
   render() {
     return this.props.platform.filter(platform => platform.location.lat !== undefined  && platform.location.lon !== undefined)
                               .map(platform => {
-        const icon = <FontAwesomeIcon className="icon"
-                                      icon={platform_types_to_icon(platform.meta.platform_types)}
-                                      size="2x" />;
         const customMarkerIcon = L.divIcon({
           html: renderToStaticMarkup(<AssetIcon asset_types={ platform.meta.platform_types } />),
           className: "icon"
