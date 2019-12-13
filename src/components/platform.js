@@ -142,7 +142,7 @@ export class PlatformTable extends Component {
                     .map(platform =>
                     <tr key={ platform.id } >
                         <td><FontAwesomeIcon icon={ platform_types_to_icon(platform.meta.platform_types) } /></td>
-                        <td><Link exact to={`/platform/${platform.id}/details`}><FontAwesomeIcon icon={ faInfo } /></Link></td>
+                        <td><Link to={`/platform/${platform.id}/details`}><FontAwesomeIcon icon={ faInfo } /></Link></td>
                         <td>{
                             (() => {
                           const url = platform.meta.urls[0];

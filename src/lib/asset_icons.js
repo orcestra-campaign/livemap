@@ -60,8 +60,8 @@ export class AssetIcon extends Component {
         const props = any_icon(this.props.asset_types)
         if ( props.fa !== undefined ) {
             const style = {
-                "margin-left": "-0.5em",
-                "margin-top": "-0.5em",
+                "marginLeft": "-0.5em",
+                "marginTop": "-0.5em",
             }
             return <FontAwesomeIcon className="icon"
                                     icon={ props.fa }
@@ -69,8 +69,8 @@ export class AssetIcon extends Component {
                                     style={ style } />
         } else {
             const style = {
-                "margin-left": props.l,
-                "margin-top": props.t,
+                "marginLeft": props.l,
+                "marginTop": props.t,
             }
             return <img style={ style } width={ props.w } height={ props.h } src={ props.src } alt={this.props.asset_types[0]} />
         }
