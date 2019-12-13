@@ -34,8 +34,8 @@ function eurec4a_reducer(state = initialState, action) {
                         urls: ((action.payload.url && [action.payload.url]) || []).concat(action.payload.urls || []),
                         contacts: ((action.payload.contact && [action.payload.contact]) || []).concat(action.payload.contacts || [])
                     };
-                    const idLens = R.lensPath(['platform', id, 'meta'])
-                    return R.over(idLens, device => { return meta; }, state);
+                    const metaLens = R.lensPath(['platform', id, 'meta'])
+                    return R.over(metaLens, device => { return meta; }, state);
                 }
             }
         case "PLATFORM_LOCATION":
@@ -44,9 +44,11 @@ function eurec4a_reducer(state = initialState, action) {
                 if(action.payload === "DELETE") {
                     return R.dissocPath(['platform', id, 'location'], state);
                 } else {
-                    const idLens = R.lensPath(['platform', id, 'location'])
+                    const locationLens = R.lensPath(['platform', id, 'location'])
+                    const metaLens = R.lensPath(['platform', id, 'meta'])
                     const location = {...action.payload, time: moment.utc(action.payload.time)};
-                    return R.over(idLens, device => { return location; }, state);
+                    return R.over(locationLens, device => { return location; },
+                        R.over(metaLens, oldmeta => oldmeta || {urls:[], contacts:[]}, state));
                 }
             }
         default:
