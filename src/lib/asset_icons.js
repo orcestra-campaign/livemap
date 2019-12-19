@@ -23,12 +23,16 @@ import drifter from "./asset_icons/geomar_waveglider/drifter.png";
 import svpdrifter from "./asset_icons/geomar_waveglider/svp-drifter.png";
 import saildrone from "./asset_icons/geomar_waveglider/saildrone.png";
 import waveglider from "./asset_icons/geomar_waveglider/waveglider.png";
+import seaglider from "./asset_icons/uea_icons/seaglider.png";
+import caravela from "./asset_icons/uea_icons/caravela.png";
 
 const icons = {
     "meteor": { w: "50px", h: "22px", l: "-20px", t: "-10px", src: meteor },
     "mooring": { w: "24px", h: "30px", l: "-8px", t: "-10px", src: mooring },
     "wave glider": { w: "24px", h: "30px", l: "-10px", t: "-15px", src: waveglider },
     "slocum glider": { w: "30px", h: "30px", l: "-10px", t: "-15px", src: slocum },
+    "seaglider": { w: "30px", h: "12px", l: "-10px", t: "-8px", src: seaglider },
+    "caravela": { w: "42px", h: "20px", l: "-10px", t: "-10px", src: caravela },
     "drifter": { w: "15px", h: "30px", l: "-7.5px", t: "-15px", src: drifter },
     "svp drifter": { w: "25px", h: "25px", l: "-10px", t: "-10px", src: svpdrifter },
     "saildrone": { w: "30px", h: "42px", l: "-10px", t: "-20px", src: saildrone },
