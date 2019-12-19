@@ -3,6 +3,11 @@
 This is currently only a scratch and may actually never get beyond that.
 See below for some default documentation of create-react-app.
 
+## Getting started
+
+Before you can run the local server, you will have to install the dependencies.
+This can be done by `npm install`. Afterwards, the following scripts will be available.
+
 ## Available Scripts
 
 In the project directory, you can run:
