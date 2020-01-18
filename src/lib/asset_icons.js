@@ -9,7 +9,8 @@ import {
     faHome,
     faLifeRing,
     faQuestion,
-    faSatelliteDish
+    faSatelliteDish,
+    faSatellite
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -41,6 +42,7 @@ const icons = {
     "station": { fa: faHome },
     "buoy": { fa: faLifeRing },
     "ground radar": { fa: faSatelliteDish },
+    "satellite": { fa: faSatellite },
     "tethered balloon": { fa: faFly },
     "undefined": { fa: faQuestion },
 }

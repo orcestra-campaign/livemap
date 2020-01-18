@@ -19,6 +19,7 @@ import {
     faLifeRing,
     faQuestion,
     faSatelliteDish,
+    faSatellite,
     faInfo
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -32,6 +33,7 @@ export const platform_icons = {
     "station": faHome,
     "buoy": faLifeRing,
     "ground radar": faSatelliteDish,
+    "satellite": faSatellite,
     "tethered balloon": faFly,
 };
 
