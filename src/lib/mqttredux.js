@@ -1,4 +1,4 @@
-import { connect } from 'mqtt';
+import mqtt from 'mqtt';
 
 function topicToMatcher(topic) {
     return new RegExp(topic.replace(/\//g, "\\/").replace(/\+/g, '[^/]+').replace(/#/, '.+'));
@@ -18,7 +18,7 @@ function makeTopicMatchers(obj) {
 class MQTTRedux {
     constructor(config) {
         this.config = config;
-        this.mqtt = connect(config.url, config.opt);
+        this.mqtt = mqtt.connect(config.url, config.opt);
         this.topicActions = [];
     }
 
