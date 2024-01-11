@@ -46,7 +46,7 @@ jobs:
       group: "pages"
       cancel-in-progress: false
     steps:
-      - name: Download compiled book
+      - name: Download compiled site
         uses: actions/download-artifact@v3
         with:
           name: html
