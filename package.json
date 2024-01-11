@@ -2,7 +2,7 @@
   "name": "mqtt_dashboard",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://orcestra-campaign.github.io/mqtt_dashboard",
+  "homepage": "https://orcestra-campaign.github.io/livemap",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "react-scripts": "^5.0.1"

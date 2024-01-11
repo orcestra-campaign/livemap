@@ -89,7 +89,7 @@ class App_ extends Component {
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse>
-              <Navbar.Brand>MQTT Dashboard</Navbar.Brand>
+              <Navbar.Brand>Livemap</Navbar.Brand>
               <Nav className="mr-auto" as="ul">
                 <Nav.Link as={NavLink} exact to="/">Map</Nav.Link>
                 <Nav.Link as={NavLink} exact to="/table">Table</Nav.Link>
