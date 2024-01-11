@@ -1,6 +1,6 @@
 {
-  "short_name": "EUREC4A live",
-  "name": "MQTT Dashboard for live data during EUREC4A",
+  "short_name": "ORCESTRA live",
+  "name": "MQTT Dashboard for live data during ORCESTRA",
   "icons": [
     {
       "src": "favicon.ico",

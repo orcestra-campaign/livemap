@@ -85,7 +85,7 @@ class App_ extends Component {
                 className="d-inline-block align-top"
                 alt="EUREC4A logo"
               />{' '}
-              EUREC<sup>4</sup>A
+              ORCESTRA
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse>

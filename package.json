@@ -2,7 +2,7 @@
   "name": "mqtt_dashboard",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.meteo.physik.uni-muenchen.de/~tobias.koelling/mqtt_dashboard",
+  "homepage": "https://orcestra-campaign.github.io/mqtt_dashboard",
   "devDependencies": {
     "react-scripts": "^5.0.1"
   },

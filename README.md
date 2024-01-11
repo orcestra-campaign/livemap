@@ -1,4 +1,4 @@
-# MQTT Dashboard for live data during EUREC4A
+# MQTT Dashboard for live data during ORCESTRA
 
 This is currently only a scratch and may actually never get beyond that.
 See below for some default documentation of create-react-app.
