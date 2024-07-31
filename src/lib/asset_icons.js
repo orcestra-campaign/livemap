@@ -26,6 +26,7 @@ import saildrone from "./asset_icons/geomar_waveglider/saildrone.png";
 import waveglider from "./asset_icons/geomar_waveglider/waveglider.png";
 import seaglider from "./asset_icons/uea_icons/seaglider.png";
 import caravela from "./asset_icons/uea_icons/caravela.png";
+import quadcopter_top from "./asset_icons/strinqs/quadcopter_top.png";
 
 const icons = {
     "meteor": { w: "50px", h: "22px", l: "-20px", t: "-10px", src: meteor },
@@ -37,6 +38,7 @@ const icons = {
     "drifter": { w: "15px", h: "30px", l: "-7.5px", t: "-15px", src: drifter },
     "svp drifter": { w: "25px", h: "25px", l: "-10px", t: "-10px", src: svpdrifter },
     "saildrone": { w: "30px", h: "42px", l: "-10px", t: "-20px", src: saildrone },
+    "quadcopter": { w: "30px", h: "30px", l: "-15px", t: "-15px", src: quadcopter_top },
     "plane": { fa: faPlane },
     "ship": { fa: faShip },
     "station": { fa: faHome },
