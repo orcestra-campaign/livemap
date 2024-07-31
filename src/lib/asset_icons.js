@@ -62,23 +62,35 @@ const any_icon = asset_types => {
 };
 
 export class AssetIcon extends Component {
+    static defaultProps = {
+        marker: false,
+    };
+
     render() {
         const props = any_icon(this.props.asset_types)
         if ( props.fa !== undefined ) {
-            const style = {
-                "marginLeft": "-0.5em",
-                "marginTop": "-0.5em",
+            if ( this.props.marker ) {
+                const style = {
+                    "marginLeft": "-0.5em",
+                    "marginTop": "-0.5em",
+                }
+                return <FontAwesomeIcon className="icon"
+                                        icon={ props.fa }
+                                        size="2x"
+                                        style={ style } />
+            } else {
+                return <FontAwesomeIcon className="icon" icon={ props.fa } />
             }
-            return <FontAwesomeIcon className="icon"
-                                    icon={ props.fa }
-                                    size="2x"
-                                    style={ style } />
         } else {
-            const style = {
-                "marginLeft": props.l,
-                "marginTop": props.t,
+            if ( this.props.marker ) {
+                const style = {
+                    "marginLeft": props.l,
+                    "marginTop": props.t,
+                }
+                return <img style={ style } width={ props.w } height={ props.h } src={ props.src } alt={this.props.asset_types[0]} />
+            } else {
+                return <img style={ {height: "1.2em"} } src={ props.src } alt={this.props.asset_types[0]} />
             }
-            return <img style={ style } width={ props.w } height={ props.h } src={ props.src } alt={this.props.asset_types[0]} />
         }
     }
 }

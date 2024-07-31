@@ -9,34 +9,10 @@ import * as moment from 'moment';
 
 import Table from 'react-bootstrap/Table';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-    faStopwatch,
-//    faRuler,
-    faPlane,
-    faShip,
-    faHome,
-    faLifeRing,
-    faQuestion,
-    faSatelliteDish,
-    faSatellite,
-    faInfo
-} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStopwatch, faInfo } from '@fortawesome/free-solid-svg-icons';
 
-import {
-    faFly
-} from '@fortawesome/free-brands-svg-icons'
-
-export const platform_icons = {
-    "plane": faPlane,
-    "ship": faShip,
-    "station": faHome,
-    "buoy": faLifeRing,
-    "ground radar": faSatelliteDish,
-    "satellite": faSatellite,
-    "tethered balloon": faFly,
-};
-
+import { AssetIcon } from '../lib/asset_icons';
 
 export class TimeDiff extends Component {
     constructor(props) {
@@ -72,20 +48,6 @@ export class TimeDiff extends Component {
     }
 }
 
-export const platform_types_to_icon = platform_types => {
-    var icon = undefined;
-    for ( const platform_type of platform_types || [] ) {
-        icon = platform_icons[platform_type];
-        if ( icon !== undefined ) {
-            break;
-        }
-    }
-    if ( icon === undefined ) {
-        icon = faQuestion;
-    }
-    return icon;
-};
-
 export class PlatformInfo extends Component {
   render() {
       const name = this.props.meta.long_name || this.props.id;
@@ -96,10 +58,9 @@ export class PlatformInfo extends Component {
       } else {
           title = name;
       }
-      const icon = <FontAwesomeIcon icon={platform_types_to_icon(this.props.meta.platform_types)} />;
       return (
           <div className="platform_info">
-            <header className="platform_header">{ icon } { title }</header>
+            <header className="platform_header"><AssetIcon asset_types={ this.props.meta.platform_types } /> { title }</header>
             <div className="platform_description">
                 <div> lat: <NumberFormat value={ this.props.location.lat } suffix="°" displayType="text" decimalScale="7" /> </div>
                 <div> lon: <NumberFormat value={ this.props.location.lon } suffix="°" displayType="text" decimalScale="7" /> </div>
@@ -143,7 +104,7 @@ export class PlatformTable extends Component {
                     //.sort((p1, p2) => (p2.location.time || 0) - (p1.location.time || 0))
                     .map(platform =>
                     <tr key={ platform.id } >
-                        <td><FontAwesomeIcon icon={ platform_types_to_icon(platform.meta.platform_types) } /></td>
+                        <td><AssetIcon asset_types={ platform.meta.platform_types } /></td>
                         <td><Link to={`/platform/${platform.id}/details`}><FontAwesomeIcon icon={ faInfo } /></Link></td>
                         <td>{
                             (() => {

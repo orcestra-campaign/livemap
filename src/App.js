@@ -55,7 +55,7 @@ class AssetMarkers extends Component {
     return this.props.platform.filter(platform => platform.location.lat !== undefined  && platform.location.lon !== undefined)
                               .map(platform => {
         const customMarkerIcon = L.divIcon({
-          html: renderToStaticMarkup(<AssetIcon asset_types={ platform.meta.platform_types } />),
+          html: renderToStaticMarkup(<AssetIcon marker asset_types={ platform.meta.platform_types } />),
           className: "icon"
         });
         return (
