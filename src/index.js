@@ -14,7 +14,7 @@ import { logger } from './middleware.js';
 import { createClient } from './lib/mqttredux';
 
 const mqttConfig = {
-  url: 'wss://mqtt.eurec4a.eu:9002/mqtt',
+  url: 'wss://mqtt.orcestra-campaign.org:443/mqtt',
   opt: {
     clientId: 'dashboard-redux-' + Date.now(),
     username: "dashboard",
